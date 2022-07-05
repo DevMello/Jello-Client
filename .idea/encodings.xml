@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/jelloclickgui/Music.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/ttf/MinecraftFontRenderer.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/minimap/XaeroMinimap.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/net/minecraft/client/gui/GuiMainMenu.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/test/java/gui/DownloadFrame.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/gui/ImagePanel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/gui/JelloButton.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/gui/JelloProgressBar.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/Json.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/JsonArray.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/JsonHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/JsonLiteral.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/JsonNumber.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/JsonObject.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/JsonParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/JsonString.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/JsonValue.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/JsonWriter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/Location.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/ParseException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/PrettyPrint.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/WriterConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/test/java/json/WritingBuffer.java" charset="UTF-8" />
+    <file url="PROJECT" charset="windows-1252" />
+  </component>
+</project>

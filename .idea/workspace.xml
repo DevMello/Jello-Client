@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7cff3138-c8d3-463b-ae55-bb91a2d65307" name="Default Changelist" comment="icon">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/discord_rpc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/discord_rpc1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mp3spi_1_9_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/slick.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/._.DS_Store" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/event/events/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/event/events/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/event/events/EventPreMotion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/event/events/EventPreMotion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/hud/._.DS_Store" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/jelloclickgui/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/jelloclickgui/Music.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/main/Jello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/main/Jello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/main/Module.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/main/Module.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/ActiveMods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/ActiveMods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/AirWalk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/AirWalk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/BlockFly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/BlockFly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/BunnyHop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/BunnyHop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/CameraNoClip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/CameraNoClip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/ClickGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/ClickGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/Compass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/Compass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/Fly.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/Fly.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/HighJump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/HighJump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/KeyStrokes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/KeyStrokes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/KillAura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/KillAura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/LongJump.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/LongJump.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/MenuGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/MenuGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/MiniMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/MiniMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/NoFall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/NoFall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/NoSlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/NoSlow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/Notifications.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/Notifications.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/Step.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/Step.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/TabGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/modules/TabGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/music/music/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/music/music/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/util/EntityUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/util/EntityUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/youtube/WebUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/youtube/WebUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/Minecraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/Minecraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/entity/AbstractClientPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/entity/AbstractClientPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/gui/GuiIngame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/gui/GuiIngame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/gui/GuiMainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/gui/GuiMainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/gui/GuiVideoSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/gui/GuiVideoSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/model/ModelPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/model/ModelPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/ActiveRenderInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/ActiveRenderInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/EntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/EntityRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/RenderGlobal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/RenderGlobal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/block/model/ItemCameraTransforms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/block/model/ItemCameraTransforms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/block/model/ItemModelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/block/model/ItemModelGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/block/model/ItemTransformVec3f.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/block/model/ItemTransformVec3f.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/entity/RenderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/entity/RenderItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/entity/layers/LayerCape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/entity/layers/LayerCape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/texture/ITextureObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/renderer/texture/ITextureObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/resources/model/ModelBakery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/resources/model/ModelBakery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/resources/model/SimpleBakedModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/resources/model/SimpleBakedModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/client/settings/KeyBinding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/client/settings/KeyBinding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/minecraft/network/play/client/C03PacketPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/minecraft/network/play/client/C03PacketPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/optifine/CapeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/optifine/CapeUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/minecraft/Jello/Jello.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/Jello/Jello.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/minecraft/Jello/JelloLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/Jello/JelloLogo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/minecraft/Jello/jello music background.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/Jello/jello music background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/minecraft/Jello/jelloaltmanager.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/Jello/jelloaltmanager.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/minecraft/texts/credits.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/minecraft/texts/credits.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Start.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/com/github/TeamNewPipe/NewPipeExtractor/extractor/v0.22.1/extractor-v0.22.1-sources.jar!/org/schabi/newpipe/extractor/linkhandler/LinkHandler.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://$MAVEN_REPOSITORY$/com/github/TeamNewPipe/NewPipeExtractor/extractor/v0.22.1/extractor-v0.22.1-sources.jar!/org/schabi/newpipe/extractor/services/youtube/YoutubeService.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/main/Module.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/me/dev/modules/combat/Criticals.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/me/dev/modules/combat/KillAura.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/me/dev/modules/render/ESP.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/me/dev/modules/render/Hitboxes.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/me/dev/modules/render/Nametags.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/me/dev/util/RenderUtils.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/net/minecraft/network/play/client/C03PacketPlayer.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../monsoon-1.8.9/wtf/monsoon/impl/modules/combat/Criticals.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="kn3494ol" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1p1ys4PldwT4IoODB68kbL22duI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.format.on.save.advertiser.fired&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/py969/IdeaProjects/Jello-Client/src/test/java&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.reader.mode&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\py969\IdeaProjects\Jello-Client\src\test\java" />
+      <recent name="C:\Users\py969\IdeaProjects\Jello-Client\src\main\resources\assets\Music" />
+      <recent name="C:\Users\py969\IdeaProjects\Jello-Client\src\main\resources\assets\minecraft\Dev\capes" />
+      <recent name="C:\Users\py969\IdeaProjects\Jello-Client\src\main\resources\assets\minecraft\textures\gui\title" />
+      <recent name="C:\Users\py969\IdeaProjects\Jello-Client\src\main\resources\assets\minecraft\Jello" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\py969\IdeaProjects\Jello-Client\output" />
+      <recent name="C:\Users\py969\IdeaProjects\Jello-Client\src" />
+      <recent name="C:\Users\py969\IdeaProjects\Jello-Client\libs" />
+      <recent name="C:\Users\py969\IdeaProjects\Jello-Client\src\main\java\info\sigmaclient\management\command" />
+      <recent name="C:\Users\py969\IdeaProjects\Jello-Client\src\main\java\info\sigmaclient\management\command\impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="me.dev.modules.render" />
+      <recent name="com.mentalfrostbyte.jello.modules" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn install" />
+      <command value="mvn compile" />
+      <command value="mvn site:jar" />
+      <command value="mvn package" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Launch" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="Start" />
+      <module name="Jello-Client" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=./natives/" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7cff3138-c8d3-463b-ae55-bb91a2d65307" name="Default Changelist" comment="" />
+      <created>1614365095785</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614365095785</updated>
+      <workItem from="1624504808428" duration="1442000" />
+      <workItem from="1624658375588" duration="10393000" />
+      <workItem from="1624676312837" duration="665000" />
+      <workItem from="1624679297547" duration="35000" />
+      <workItem from="1624815294086" duration="761000" />
+      <workItem from="1624919076957" duration="1254000" />
+      <workItem from="1625005979614" duration="605000" />
+      <workItem from="1625092641322" duration="1748000" />
+      <workItem from="1625178063484" duration="5741000" />
+      <workItem from="1625266130768" duration="3621000" />
+      <workItem from="1625421499710" duration="680000" />
+      <workItem from="1625422566701" duration="543000" />
+      <workItem from="1625423129958" duration="604000" />
+      <workItem from="1655399152825" duration="91000" />
+      <workItem from="1655483831590" duration="21000" />
+      <workItem from="1655598312598" duration="3437000" />
+      <workItem from="1655605010247" duration="2377000" />
+      <workItem from="1655776543571" duration="12000" />
+      <workItem from="1656180955785" duration="1858000" />
+      <workItem from="1656262718123" duration="4528000" />
+      <workItem from="1656296747860" duration="2785000" />
+      <workItem from="1656617787332" duration="4261000" />
+      <workItem from="1656623718206" duration="946000" />
+      <workItem from="1656641639964" duration="13000" />
+      <workItem from="1656643010469" duration="2991000" />
+      <workItem from="1656693083977" duration="11540000" />
+      <workItem from="1656713690846" duration="1304000" />
+      <workItem from="1656726468933" duration="168000" />
+      <workItem from="1656787296613" duration="1629000" />
+      <workItem from="1656800855627" duration="3283000" />
+      <workItem from="1656874798791" duration="10000" />
+      <workItem from="1656959001835" duration="2454000" />
+      <workItem from="1656990850172" duration="696000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/0.1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>205</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>206</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>207</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>208</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>209</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>210</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>211</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>212</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>213</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>204</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>203</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>202</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>199</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>201</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>200</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>197</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>198</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>191</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>193</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>194</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>195</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/mentalfrostbyte/jello/alts/GuiAltManager.java</url>
+          <line>196</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
