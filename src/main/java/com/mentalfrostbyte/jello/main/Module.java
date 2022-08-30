@@ -49,6 +49,9 @@ public class Module {
 		this.values = new ArrayList();
 
 	}
+	public Module() {
+
+	}
 	public void toggle() {
 		
 		this.toggled = !this.toggled;
@@ -124,6 +127,7 @@ public class Module {
 	public Category getCategory() {
         return this.category;
     }
+
     
     public void setCategory(final Category category) {
         this.category = category;
@@ -149,8 +153,8 @@ public class Module {
 		displayname = string;
 		
 	}
-    
-    
-    
+
+
+
 
 }

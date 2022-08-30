@@ -43,6 +43,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import javax.imageio.ImageIO;
 
+import me.dev.Dev;
+import me.dev.gui.SplashProgress;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.audio.MusicTicker;
@@ -206,7 +208,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     private ServerData currentServerData;
 
     /** The RenderEngine instance used by Minecraft */
-    private TextureManager renderEngine;
+    public TextureManager renderEngine;
 
     /**
      * Set to 'this' in Minecraft constructor; used by some settings get methods
@@ -230,7 +232,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     private RenderManager renderManager;
     private RenderItem renderItem;
     private ItemRenderer itemRenderer;
-    public EntityPlayerSP thePlayer;
+    public static EntityPlayerSP thePlayer;
     private Entity renderViewEntity;
     public Entity pointedEntity;
     public EffectRenderer effectRenderer;
@@ -488,6 +490,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         this.refreshResources();
         this.renderEngine = new TextureManager(this.mcResourceManager);
         this.mcResourceManager.registerReloadListener(this.renderEngine);
+
         this.func_180510_a(this.renderEngine);
         this.func_175595_al();
         this.skinManager = new SkinManager(this.renderEngine, new File(this.fileAssets, "skins"), this.sessionService);
@@ -537,30 +540,82 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         GlStateManager.loadIdentity();
         GlStateManager.matrixMode(5888);
         this.checkGLEror("Startup");
+        SplashProgress.drawSplash(this.getTextureManager());
+        Dev.getInstance().initialize();
+        me.dev.util.Logger devLogger = new me.dev.util.Logger("Minecraft");
+        SplashProgress.setProgress(6, "Minecraft - Setup Logger");
         this.textureMapBlocks = new TextureMap("textures");
+        devLogger.setupLog("Setup TextureMap");
+        SplashProgress.setProgress(7, "Minecraft - Setup TextureMap");
         this.textureMapBlocks.setMipmapLevels(this.gameSettings.mipmapLevels);
+        devLogger.setupLog("Setup MipmapLevels");
+        SplashProgress.setProgress(8, "Minecraft - Setup MipmapLevels");
         this.renderEngine.loadTickableTexture(TextureMap.locationBlocksTexture, this.textureMapBlocks);
+        devLogger.setupLog("Load TickableTexture");
+        SplashProgress.setProgress(9, "Minecraft - Load TickableTexture");
         this.renderEngine.bindTexture(TextureMap.locationBlocksTexture);
+        devLogger.setupLog("Binding TextureMap.locationBlocksTexture");
+        SplashProgress.setProgress(10, "Minecraft - Binding TextureMap.locationBlocksTexture");
         this.textureMapBlocks.func_174937_a(false, this.gameSettings.mipmapLevels > 0);
         this.modelManager = new ModelManager(this.textureMapBlocks);
+        devLogger.setupLog("Setup ModelManager");
+        SplashProgress.setProgress(11, "Minecraft - Setup ModelManager");
         this.mcResourceManager.registerReloadListener(this.modelManager);
+        devLogger.setupLog("Register ReloadListener for ModelManager");
+        SplashProgress.setProgress(12, "Minecraft - Registered ReloadListener for ModelManager");
         this.renderItem = new RenderItem(this.renderEngine, this.modelManager);
+        devLogger.setupLog("Setup RenderItem");
+        SplashProgress.setProgress(13, "Minecraft - Setup RenderItem");
         this.renderManager = new RenderManager(this.renderEngine, this.renderItem);
+        devLogger.setupLog("Setup RenderManager");
+        SplashProgress.setProgress(14, "Minecraft - Setup RenderManager");
         this.itemRenderer = new ItemRenderer(this);
+        devLogger.setupLog("Setup ItemRenderer");
+        SplashProgress.setProgress(15, "Minecraft - Setup ItemRenderer");
         this.mcResourceManager.registerReloadListener(this.renderItem);
+        devLogger.setupLog("Register ReloadListener for RenderItem");
+        SplashProgress.setProgress(16, "Minecraft - Registered ReloadListener for RenderItem");
         this.entityRenderer = new EntityRenderer(this, this.mcResourceManager);
+        devLogger.setupLog("Setup EntityRenderer");
+        SplashProgress.setProgress(17, "Minecraft - Setup EntityRenderer");
         this.mcResourceManager.registerReloadListener(this.entityRenderer);
+        devLogger.setupLog("Register ReloadListener for EntityRenderer");
+        SplashProgress.setProgress(18, "Minecraft - Registered ReloadListener for EntityRenderer");
         this.field_175618_aM = new BlockRendererDispatcher(this.modelManager.getBlockModelShapes(), this.gameSettings);
+        devLogger.setupLog("Setup BlockRendererDispatcher");
+        SplashProgress.setProgress(19, "Minecraft - Setup BlockRendererDispatcher");
         this.mcResourceManager.registerReloadListener(this.field_175618_aM);
+        devLogger.setupLog("Register ReloadListener for BlockRendererDispatcher");
+        SplashProgress.setProgress(20, "Minecraft - Registered ReloadListener for BlockRendererDispatcher");
         this.renderGlobal = new RenderGlobal(this);
+        devLogger.setupLog("Setup RenderGlobal");
+        SplashProgress.setProgress(21, "Minecraft - Setup RenderGlobal");
         this.mcResourceManager.registerReloadListener(this.renderGlobal);
+        devLogger.setupLog("Register ReloadListener for RenderGlobal");
+        SplashProgress.setProgress(22, "Minecraft - Registered ReloadListener for RenderGlobal");
         this.guiAchievement = new GuiAchievement(this);
+        devLogger.setupLog("Setup GuiAchievement");
+        SplashProgress.setProgress(23, "Minecraft - Setup GuiAchievement");
         GlStateManager.viewport(0, 0, this.displayWidth, this.displayHeight);
+        devLogger.setupLog("Setting up viewport");
+        SplashProgress.setProgress(24, "Minecraft - Setting up viewport");
         this.effectRenderer = new EffectRenderer(this.theWorld, this.renderEngine);
+        devLogger.setupLog("Setup EffectRenderer");
+        SplashProgress.setProgress(25, "Minecraft - Setup EffectRenderer");
         this.checkGLError("Post startup");
         this.ingameGUI = new GuiIngame(this);
-
+        devLogger.setupLog("Setup GuiIngame");
+        SplashProgress.setProgress(26, "Minecraft - Setup GuiIngame");
+        devLogger.setupLog("Finished Setup");
+        SplashProgress.setProgress(27, "Minecraft - Finished Setup");
+        devLogger.setupLog("Jello","Beginning Jello Setup");
+        SplashProgress.setProgress(28, "Jello - Beginning Jello Setup");
+        devLogger.setupLog("Jello","Setting up modules");
+        SplashProgress.setProgress(29, "Jello - Setting up modules");
         Jello.register();
+        Display.setTitle(String.format("%1$s - %2$s | DevMello", Dev.clientName, Dev.clientVersion));
+
+
 
         
         if (this.serverName != null)
@@ -822,6 +877,31 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         if (this.renderGlobal != null)
         {
             this.renderGlobal.loadRenderers();
+        }
+    }
+
+    public void updateDisplay() {
+        this.mcProfiler.startSection("display_update");
+        Display.update();
+        this.mcProfiler.endSection();
+        this.checkWindowResize();
+    }
+
+    protected void checkWindowResize() {
+        if (!this.fullscreen && Display.wasResized()) {
+            final int i = this.displayWidth;
+            final int j = this.displayHeight;
+            this.displayWidth = Display.getWidth();
+            this.displayHeight = Display.getHeight();
+            if (this.displayWidth != i || this.displayHeight != j) {
+                if (this.displayWidth <= 0) {
+                    this.displayWidth = 1;
+                }
+                if (this.displayHeight <= 0) {
+                    this.displayHeight = 1;
+                }
+                this.resize(this.displayWidth, this.displayHeight);
+            }
         }
     }
 
@@ -1470,12 +1550,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     {
         String userPath = System.getProperty("user.dir");
         this.running = false;
-        File file4 = new File(userPath +"/music/audioDownload.mp3");
-        boolean bool = false;
-        boolean bool2 = false;
-        if (new File(userPath +"/music/audioDownload.mp3").exists()) {
-            bool = file4.delete();
-        }
+        Dev.getInstance().shutdown();
     }
 
     /**

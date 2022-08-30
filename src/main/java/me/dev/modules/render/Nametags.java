@@ -1,45 +1,38 @@
 package me.dev.modules.render;
 
+import com.mentalfrostbyte.jello.event.events.EventRender3D;
 import com.mentalfrostbyte.jello.main.Jello;
 import com.mentalfrostbyte.jello.main.Module;
 import com.mentalfrostbyte.jello.util.BooleanValue;
-import com.mentalfrostbyte.jello.util.RenderingUtil;
-import me.dev.util.RenderUtils;
+import com.mentalfrostbyte.jello.util.NumberValue;
 import me.dev.util.Vars;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.WorldRenderer;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.entity.RendererLivingEntity;
-import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.resources.model.IBakedModel;
-import net.minecraft.client.settings.GameSettings;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.StatCollector;
-import net.minecraft.util.StringUtils;
-import org.lwjgl.BufferUtils;
 import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.glu.GLU;
 
-import java.awt.*;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static optifine.Lagometer.active;
 
 public class Nametags extends Module {
 
@@ -47,11 +40,15 @@ public class Nametags extends Module {
     public static Map<EntityLivingBase, double[]> entityPositions = new HashMap();
     public BooleanValue armor;
     public BooleanValue background;
+    public BooleanValue health;
+    public NumberValue scale;
     public Nametags() {
         super("Nametags", Keyboard.KEY_NONE);
         this.jelloCat = Jello.tabgui.cats.get(4);
         armor = new BooleanValue("Armor", true);
         background = new BooleanValue("Background", true);
+        health = new BooleanValue("Health", true);
+        scale = new NumberValue("Scale", 5, 3, 8, 0.2);
     }
 
     //create a method that displays the players health in their nametags
@@ -62,6 +59,9 @@ public class Nametags extends Module {
     public void onDisable() {
         Vars.NametagsEnabled = false;
     }
+
+
+
 
 
 

@@ -79,7 +79,8 @@ public class TabGUI {
 		COMBAT("Combat", "CombatCat.png", 2),
 		ITEM("Item", "ItemCat.png", 3),
 		RENDER("Render", "RenderCat.png", 4);
-		
+		//MISC("Misc", "MiscCat.png", 5);
+
 		public String location;
 		public int index;
 		public String name;

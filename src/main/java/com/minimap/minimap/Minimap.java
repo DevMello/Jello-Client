@@ -1,5 +1,6 @@
 package com.minimap.minimap;
 
+import me.dev.util.Logger;
 import net.minecraft.client.*;
 import java.awt.*;
 import java.util.*;
@@ -101,6 +102,7 @@ public class Minimap
     public static Framebuffer rotationFrameBuffer;
     public static int mapUpdateX;
     public static int mapUpdateZ;
+    protected static Logger logger = new Logger("Minimap");
     
     public static int getLoadSide() {
         return Minimap.enlargedMap ? 31 : Minimap.FBOMinimapSizes[XaeroMinimap.getSettings().getMinimapSize()];
@@ -244,14 +246,16 @@ public class Minimap
                 if (name != null) {
                     Minimap.textureColours.put(name, c);
                 }
-                System.out.println("Block file not found: " + b.getLocalizedName());
+                //System.out.println("Block file not found: " + b.getLocalizedName());
+                logger.consoleLogWarn("Minimap - Block file not found" + b.getLocalizedName());
             }
             catch (Exception e2) {
                 c = b.getMapColor(state).colorValue;
                 if (name != null) {
                     Minimap.textureColours.put(name, c);
                 }
-                System.out.println("Block " + b.getLocalizedName() + " has no texture, using material colour.");
+                //System.out.println("Block " + b.getLocalizedName() + " has no texture, using material colour.");
+                logger.consoleLogWarn("Minimap - Block " + b.getLocalizedName() + " has no texture, using material colour");
             }
             if (c != null) {
                 Minimap.blockColours.put(stateId, c);
@@ -888,7 +892,8 @@ public class Minimap
                 this.renderFrameToFBO(bufferSize, viewW, sizeFix, partial, false);
             }
             else {
-                System.out.println("Error after retrying... :( Please report to Xaero96 on MinecraftForum of PlanetMinecraft!");
+                logger.consoleLogError("Minimap - Error after retrying... :( Please report to Xaero96 on MinecraftForum of PlanetMinecraft!");
+                //System.out.println("Error after retrying... :( Please report to Xaero96 on MinecraftForum of PlanetMinecraft!");
             }
         }
         long before = System.currentTimeMillis();
@@ -1191,7 +1196,8 @@ public class Minimap
                                 if (!Minimap.blockColours.isEmpty()) {
                                     Minimap.blockColours.clear();
                                     Minimap.textureColours.clear();
-                                    System.out.println("Minimap block colour cache cleaned.");
+                                    //System.out.println("Minimap block colour cache cleaned.");
+                                    logger.consoleLogInfo("Minimap - block colour cache cleaned");
                                 }
                             }
                             Minimap.sunBrightness = Minimap.mc.theWorld.getSunBrightness(1.0f);

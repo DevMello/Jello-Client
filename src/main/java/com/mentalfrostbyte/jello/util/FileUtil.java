@@ -139,6 +139,7 @@ public abstract class FileUtil {
     }
 
     public static boolean deleteFile(File file) {
+
         System.out.println(file.delete());
         return file.delete();
     }

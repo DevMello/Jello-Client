@@ -11,9 +11,15 @@ import net.minecraft.util.Session;
 
 public class Wrapper {
 
+    //public static net.minecraft.client.Minecraft Minecraft;
+
     public Minecraft getMinecraft(){
-        return Minecraft.getMinecraft();
+        return net.minecraft.client.Minecraft.getMinecraft();
     }
+    public static Minecraft mc = Minecraft.getMinecraft();
+    //public mc getMinecraft(){
+    //    return Minecraft.getMinecraft();
+    //}
 
 
     public PlayerControllerMP getPlayerController(){

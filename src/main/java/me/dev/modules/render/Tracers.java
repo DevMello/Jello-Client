@@ -1,21 +1,11 @@
 package me.dev.modules.render;
-import com.mentalfrostbyte.jello.event.events.Event;
-import com.mentalfrostbyte.jello.event.events.EventRender3D;
 import com.mentalfrostbyte.jello.util.BooleanValue;
 import me.dev.util.Vars;
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.player.EntityPlayer;
 import com.mentalfrostbyte.jello.main.Jello;
 import com.mentalfrostbyte.jello.main.Module;
-import me.dev.util.RenderUtils;
+import me.dev.util.render.RenderUtils;
 import org.lwjgl.input.Keyboard;
-
-import com.mentalfrostbyte.jello.main.Module;
-import org.lwjgl.opengl.GL11;
 
 public class Tracers extends Module {
 

@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
+import com.mentalfrostbyte.jello.modules.Coords;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -161,6 +162,9 @@ public class JelloHud extends GuiScreen {
 	}
 	if(ActiveMods.enabled){
 	this.renderArraylist();
+	}
+	if(Coords.enabled){
+		this.coords();
 	}
 	if(!this.transOver){
 		GL11.glPopMatrix();
@@ -565,6 +569,45 @@ public class JelloHud extends GuiScreen {
 	public float smoothTrans(double current, double last){
 		return (float) (current * mc.timer.renderPartialTicks + (last * (1.0f - mc.timer.renderPartialTicks)));
 	}
+
+	public void coords() {
+		ScaledResolution sr = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
+		float yStart = sr.getScaledHeight() - 5 - FontUtil.jelloFont.getHeight() + 1;
+		float xStart = 5;
+		int colorFade = 0;
+		int color = Color.green.getRGB() + 00;
+		GL11.glPushMatrix();
+		GL11.glColor4f(1, 1, 1, 1);
+		// this.handleAnimations(module);
+		//this.drawPrefrences(xStart, yStart, color);
+		GL11.glPopMatrix();
+		if(notification != null){
+			GL11.glPushMatrix();
+			GL11.glTranslated(0, notification.getProgress(), 0);
+		}
+		GlStateManager.enableBlend();
+		GlStateManager.disableAlpha();
+		GlStateManager.color(1, 1, 1, 1);
+
+		this.mc.getTextureManager().bindTexture(new ResourceLocation("Jello/arraylistshadow.png"));
+		GlStateManager.color(1, 1, 1, 0.7f);
+		//this.drawModalRectWithCustomSizedTexture(xStart - 8 -2 - 1, yStart + 2 - 2.5f - 1.5f - 1.5f - 1.5f - 6 - 1, 0, 0, FontUtil.jelloFont.getStringWidth(Coords.getXYZString())*1 + 20 + 10, 18.5 + 6 + 12 + 2, FontUtil.jelloFont.getStringWidth(Coords.getXYZString())*1 + 20 + 10, 18.5 + 6 + 12 + 2);
+		yStart +=  7.5f  +5.25f;
+		GL11.glColor4f(1, 1, 1, 1);
+		GL11.glPopMatrix();
+		GlStateManager.enableBlend();
+		GlStateManager.disableAlpha();
+		GlStateManager.color(1, 1, 1, 1);
+		color = Color.green.getRGB() + 00;
+		GL11.glPushMatrix();
+		GL11.glColor4f(1, 1, 1, 1);
+		GL11.glPopMatrix();
+		GlStateManager.enableBlend();
+		GlStateManager.disableAlpha();
+		GlStateManager.color(1, 1, 1, 1);
+		FontUtil.jelloFontMarker.drawString(Coords.getXYZString(), 5, sr.getScaledHeight() - 5 - FontUtil.jelloFont.getHeight() + 1, 0xffffffff);
+
+	}
 	public void renderArraylist(){
 		ScaledResolution sr = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
 		//int count = 0;
@@ -643,6 +686,7 @@ for(Module module : Jello.mods) {
             // Gui.drawFloatRect(xStart - (float)FontUtil.jelloFont.getStringWidth(module.getDisplayName())/2.5f + 5, 0, sr.getScaledWidth(), 100, -1);
            // this.drawModalRectWithCustomSizedTexture(xStart - 8, yStart + 2 - 2.5f - 1.5f - 1.5f - 0.5f, 0, 0, FontUtil.jelloFont.getStringWidth(module.getDisplayName())*1.8f + 5, 18.5 + 10, FontUtil.jelloFont.getStringWidth(module.getDisplayName())*1.8f + 5, 18.5 + 10);
             FontUtil.jelloFont.drawString(module.getDisplayName(), xStart, yStart + 7.5f, 0xffffffff);
+				//FontUtil.jelloFont.drawString(Coords.getXYZString(), xStart, yStart + 7.5f, 0xffffffff);
             }
             if(notification != null){
             	GL11.glPopMatrix();
@@ -654,7 +698,8 @@ for(Module module : Jello.mods) {
                     colorFade = 0;
                 }
             }
-        }		
+        }
+
 	}
 	
 	public static class ModuleComparator

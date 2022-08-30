@@ -26,7 +26,7 @@ import javax.vecmath.Vector4f;
 
 import me.dev.modules.render.ESP;
 import me.dev.modules.render.Tracers;
-import me.dev.util.RenderUtils;
+import me.dev.util.render.RenderUtils;
 import me.dev.util.Vars;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
@@ -2829,9 +2829,9 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
     }
 
     public void passive(EntityLivingBase entity) {
-        float red  = 0.5F;
-        float blue  = 0.5F;
-        float green  = 0.5F;
+        float red  = 1F;
+        float blue  = 1F;
+        float green  = 1F;
 
         double xPos = (entity.lastTickPosX + (entity.posX - entity.lastTickPosX) * mc.timer.renderPartialTicks) - mc.getRenderManager().renderPosX;
         double yPos = (entity.lastTickPosY + (entity.posY - entity.lastTickPosY) * mc.timer.renderPartialTicks) - mc.getRenderManager().renderPosY;
@@ -2868,8 +2868,8 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
     public void mobESP(EntityLivingBase entity) {
 
         float red  = 1F;
-        float blue  = 0.5F;
-        float green  = 0.5F;
+        float blue  = 1F;
+        float green  = 1F;
 
         double xPos = (entity.lastTickPosX + (entity.posX - entity.lastTickPosX) * mc.timer.renderPartialTicks) - mc.getRenderManager().renderPosX;
         double yPos = (entity.lastTickPosY + (entity.posY - entity.lastTickPosY) * mc.timer.renderPartialTicks) - mc.getRenderManager().renderPosY;
@@ -2909,124 +2909,15 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
     }
 
     public void render(float red, float green, float blue, double x, double y, double z) {
-        RenderUtils.drawTracerLine(x, y, z , red, green, blue, 0.45F, 4F);
+        RenderUtils.drawTracerLine2(x, y, z , red, green, blue, 1F, 2F);
     }
 
     public void render(float red, float green, float blue, double x, double y, double z, float width, float height) {
-        RenderUtils.drawOutlinedEntityESP(x, y, z , width, height, red, green, blue,0.45F);
+        RenderUtils.drawOutlinedEntityESP(x, y, z , width, height, red, green, blue,1F);
     }
 
-    public static void drawTracerLine(double x, double y, double z, float red, float green, float blue, float alpha, float lineWdith) {
-        GL11.glPushMatrix();
-        GL11.glEnable(GL11.GL_BLEND);
-        GL11.glEnable(GL11.GL_LINE_SMOOTH);
-        GL11.glDisable(GL11.GL_DEPTH_TEST);
-        // GL11.glDisable(GL11.GL_LIGHTING);
-        GL11.glDisable(GL11.GL_TEXTURE_2D);
-        GL11.glBlendFunc(770, 771);
-        GL11.glEnable(GL11.GL_BLEND);
-        GL11.glLineWidth(lineWdith);
-        GL11.glColor4f(red, green, blue, alpha);
-        GL11.glBegin(2);
-        GL11.glVertex3d(0.0D, 0.0D + Minecraft.getMinecraft().thePlayer.getEyeHeight(), 0.0D);
-        GL11.glVertex3d(x, y, z);
-        GL11.glEnd();
-        GL11.glDisable(GL11.GL_BLEND);
-        GL11.glEnable(GL11.GL_TEXTURE_2D);
-        GL11.glEnable(GL11.GL_DEPTH_TEST);
-        GL11.glDisable(GL11.GL_LINE_SMOOTH);
-        GL11.glDisable(GL11.GL_BLEND);
-        // GL11.glEnable(GL11.GL_LIGHTING);
-        GL11.glPopMatrix();
-    }
 
-    public static void drawEntityESP(double x, double y, double z, double width, double height, float red, float green, float blue, float alpha, float lineRed, float lineGreen, float lineBlue, float lineAlpha, float lineWdith) {
-        GL11.glPushMatrix();
-        GL11.glEnable(GL11.GL_BLEND);
-        GL11.glBlendFunc(770, 771);
-        // GL11.glDisable(GL11.GL_LIGHTING);
-        GL11.glDisable(GL11.GL_TEXTURE_2D);
-        GL11.glEnable(GL11.GL_LINE_SMOOTH);
-        GL11.glDisable(GL11.GL_DEPTH_TEST);
-        GL11.glDepthMask(false);
-        GL11.glColor4f(red, green, blue, alpha);
-        drawBoundingBox(new AxisAlignedBB(x - width, y, z - width, x + width , y + height, z + width));
-        GL11.glLineWidth(lineWdith);
-        GL11.glColor4f(lineRed, lineGreen, lineBlue, lineAlpha);
-        RenderUtils.drawOutlinedBoundingBox(new AxisAlignedBB(x - width, y, z - width, x + width , y + height, z + width));
-        GL11.glDisable(GL11.GL_LINE_SMOOTH);
-        GL11.glEnable(GL11.GL_TEXTURE_2D);
-        // GL11.glEnable(GL11.GL_LIGHTING);
-        GL11.glEnable(GL11.GL_DEPTH_TEST);
-        GL11.glDepthMask(true);
-        GL11.glDisable(GL11.GL_BLEND);
-        GL11.glPopMatrix();
-    }
 
-    public static void drawBoundingBox(AxisAlignedBB aa)  {
-        Tessellator tessellator = Tessellator.getInstance();
-        WorldRenderer worldRenderer = tessellator.getWorldRenderer();
-        worldRenderer.startDrawingQuads();
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.maxZ);
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.maxZ);
-        tessellator.draw();
-        worldRenderer.startDrawingQuads();
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.minZ);
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.maxZ);
-        tessellator.draw();
-        worldRenderer.startDrawingQuads();
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.minZ);
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.minZ);
-        tessellator.draw();
-        worldRenderer.startDrawingQuads();
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.maxZ);
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.maxZ);
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.minZ);
-        tessellator.draw();
-        worldRenderer.startDrawingQuads();
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.minZ);
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.maxZ);
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.minZ);
-        tessellator.draw();
-        worldRenderer.startDrawingQuads();
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.maxZ);
-        worldRenderer.addVertex(aa.minX, aa.maxY, aa.minZ);
-        worldRenderer.addVertex(aa.minX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.minZ);
-        worldRenderer.addVertex(aa.maxX, aa.maxY, aa.maxZ);
-        worldRenderer.addVertex(aa.maxX, aa.minY, aa.maxZ);
-        tessellator.draw();
-    }
 
 
     private EntityFX func_174974_b(int p_174974_1_, boolean p_174974_2_, double p_174974_3_, double p_174974_5_, double p_174974_7_, double p_174974_9_, double p_174974_11_, double p_174974_13_, int ... p_174974_15_)

@@ -6,7 +6,7 @@ import com.mentalfrostbyte.jello.main.Module;
 import com.mentalfrostbyte.jello.util.NumberValue;
 
 import me.dev.event.events.EventUpdate;
-import me.dev.util.Timer;
+import me.dev.util.misc.Timer;
 import org.lwjgl.input.Keyboard;
 
 public class AutoClicker extends Module {

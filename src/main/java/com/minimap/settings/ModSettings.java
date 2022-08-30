@@ -1,5 +1,6 @@
 package com.minimap.settings;
 
+import me.dev.util.Logger;
 import net.minecraft.client.settings.*;
 import com.minimap.events.*;
 import com.minimap.*;
@@ -60,6 +61,7 @@ public class ModSettings
     public boolean mapSafeMode;
     public int distance;
     public static final String[] distanceTypes;
+    public static Logger logger = new Logger("ModSettings");
     public int blockColours;
     public static final String[] blockColourTypes;
     public boolean lighting;
@@ -641,7 +643,8 @@ public class ModSettings
                 }
             }
             catch (Exception e) {
-                System.out.println("Skipping setting:" + args[0]);
+                logger.consoleLogWarn("ModSettings - Skipping setting:" + args[0]);
+                //System.out.println("Skipping setting:" + args[0]);
             }
         }
         //this.loadWaypoints(XaeroMinimap.waypointsFile);

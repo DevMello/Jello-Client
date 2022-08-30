@@ -138,6 +138,7 @@ public class GuiNewChat extends Gui
         this.printChatMessageWithOptionalDeletion(p_146227_1_, 0);
     }
 
+
     /**
      * prints the ChatComponent to Chat. If the ID is not 0, deletes an existing Chat Line of that ID from the GUI
      */

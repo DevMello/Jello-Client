@@ -3,7 +3,7 @@ package me.dev.modules.render;
 import com.mentalfrostbyte.jello.main.Jello;
 import com.mentalfrostbyte.jello.main.Module;
 import com.mentalfrostbyte.jello.util.BooleanValue;
-import me.dev.util.RenderUtils;
+import me.dev.util.render.RenderUtils;
 import me.dev.util.Vars;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
@@ -154,6 +154,6 @@ public class ESP extends Module {
     }
 
     public void render(float red, float green, float blue, double x, double y, double z, float width, float height) {
-        RenderUtils.drawEntityESP(x, y, z , width, height, red, green, blue,0.45F, 0F,0F, 0F, 1F, 1F);
+        RenderUtils.drawOutlinedEntityESP(x, y, z , width, height, red, green, blue,0.45F);
     }
 }

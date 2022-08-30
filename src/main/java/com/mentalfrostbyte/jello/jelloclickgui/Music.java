@@ -90,29 +90,29 @@ public class Music {
 		this.x = x;
 		this.y = y;
 
-//		List<ChannelObj> channels = Arrays.asList(new ChannelObj("Trap Nation","UCa10nxShhzNrCE1o2ZOPztg"),
-//				new ChannelObj("Electro Posé","UCpO0OSNAFLRUpGrNz-bJJHA"),
-//				new ChannelObj("Chill Nation","UCM9KEEuzacwVlkt9JfJad7g"),
-//				new ChannelObj("VEVO","UC2pmfLm7iq6Ov1UwYrWYkZA"),
-//				new ChannelObj("MrSuicideSheep","UC5nc_ZtjKW1htCVZVRxlQAQ"),
-//				new ChannelObj("Trap City","UC65afEgL62PGFWXY7n6CUbA"),
-//				new ChannelObj("CloudKid","UCSa8IUd1uEjlREMa21I3ZPQ"));
-//
-//		for(ChannelObj ch : channels){
-//			Gson playlist = new Gson();
-//			Playlist pl = playlist.fromJson(WebUtils.visitSite("https://www.googleapis.com/youtube/v3/channels?id="+ch.id+"&key="+api_key+"&part=contentDetails"), Playlist.class);
-//
-//
-//			Gson gson = new Gson();
-//			Channel request = gson.fromJson(WebUtils.visitSite("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId="+ pl.getItems().get(0).getContentDetails().getRelatedPlaylists().getUploads() +"&key="+api_key), Channel.class);
-//			for(Item v : request.getItems()){
-//				//if(v.image == null){
-//					//v.image = Resources.downloadTexture("https://img.youtube.com/vi/"+ v.getSnippet().getResourceId().getVideoId() +"/0.jpg");
-//					//}
-//			}
-//			//selectedChannel = request;
-//			this.channels.add(request);
-//		}
+		List<ChannelObj> channels = Arrays.asList(new ChannelObj("Trap Nation","UCa10nxShhzNrCE1o2ZOPztg"),
+				new ChannelObj("Electro Posé","UCpO0OSNAFLRUpGrNz-bJJHA"),
+				new ChannelObj("Chill Nation","UCM9KEEuzacwVlkt9JfJad7g"),
+				new ChannelObj("VEVO","UC2pmfLm7iq6Ov1UwYrWYkZA"),
+				new ChannelObj("MrSuicideSheep","UC5nc_ZtjKW1htCVZVRxlQAQ"),
+				new ChannelObj("Trap City","UC65afEgL62PGFWXY7n6CUbA"),
+				new ChannelObj("CloudKid","UCSa8IUd1uEjlREMa21I3ZPQ"));
+
+		for(ChannelObj ch : channels){
+			Gson playlist = new Gson();
+			Playlist pl = playlist.fromJson(WebUtils.visitSite("https://www.googleapis.com/youtube/v3/channels?id="+ch.id+"&key="+api_key+"&part=contentDetails"), Playlist.class);
+
+
+			Gson gson = new Gson();
+			Channel request = gson.fromJson(WebUtils.visitSite("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=50&playlistId="+ pl.getItems().get(0).getContentDetails().getRelatedPlaylists().getUploads() +"&key="+api_key), Channel.class);
+			for(Item v : request.getItems()){
+				//if(v.image == null){
+					//v.image = Resources.downloadTexture("https://img.youtube.com/vi/"+ v.getSnippet().getResourceId().getVideoId() +"/0.jpg");
+					//}
+			}
+			//selectedChannel = request;
+			this.channels.add(request);
+		}
 		
 		
 	}
@@ -691,7 +691,7 @@ public class Music {
 		GlStateManager.color(1, 1, 1, 1);
 		FontUtil.jelloFontSmall.drawNoBSCenteredString(total, x + 264/2f  +2 + 494/2f, y + 572/2f - 7/2f, white);
 		//}
-		/*
+
 		List<String> channels = Arrays.asList("Trap Nation", "Electro Posé", "Chill Nation", "VEVO", "MrSuicideSheep", "Trap City", "CloudKid");
 		for(int render = 0; render < 2; render++){
 			int channelCount = 0;
@@ -702,7 +702,7 @@ public class Music {
 			}
 		}
 
-		 */
+
 		if(searchScreen && this.currentSearch != null){
 			int xCount = 0;
 			int yCount = 0;

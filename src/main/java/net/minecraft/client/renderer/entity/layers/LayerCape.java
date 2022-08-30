@@ -23,8 +23,8 @@ public class LayerCape implements LayerRenderer
         if (p_177166_1_.hasCape() && !p_177166_1_.isInvisible() && p_177166_1_.func_175148_a(EnumPlayerModelParts.CAPE) && p_177166_1_.getLocationCape() != null)
         {
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-            this.playerRenderer.bindTexture(p_177166_1_.getLocationCape());
-            //this.playerRenderer.bindTexture(new ResourceLocation("Dev/capes/cb_vampire_outline.png"));
+            //this.playerRenderer.bindTexture(p_177166_1_.getLocationCape());
+            this.playerRenderer.bindTexture(new ResourceLocation("Dev/capes/cb_vampire_outline.png"));
             //p_177166_1_.getLocationCape()
             GlStateManager.pushMatrix();
             GlStateManager.translate(0.0F, 0.0F, 0.125F);

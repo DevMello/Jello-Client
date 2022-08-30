@@ -2,12 +2,7 @@ package me.dev.modules.render;
 
 import com.mentalfrostbyte.jello.main.Jello;
 import com.mentalfrostbyte.jello.main.Module;
-import me.dev.util.RenderUtils;
 import me.dev.util.Vars;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.RenderGlobal;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.AxisAlignedBB;
 import org.lwjgl.input.Keyboard;
 
 public class Hitboxes extends Module {

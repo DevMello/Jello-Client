@@ -21,6 +21,8 @@ public class GlStateManager
     private static GlStateManager.PolygonOffsetState polygonOffsetState = new GlStateManager.PolygonOffsetState((GlStateManager.SwitchTexGen)null);
     private static GlStateManager.ColorLogicState colorLogicState = new GlStateManager.ColorLogicState((GlStateManager.SwitchTexGen)null);
     private static GlStateManager.TexGenState texGenState = new GlStateManager.TexGenState((GlStateManager.SwitchTexGen)null);
+    public static int activeTextureUnit;
+    public static TextureState[] textureState;
     private static GlStateManager.ClearState clearState = new GlStateManager.ClearState((GlStateManager.SwitchTexGen)null);
     private static GlStateManager.StencilState stencilState = new GlStateManager.StencilState((GlStateManager.SwitchTexGen)null);
     private static GlStateManager.BooleanState normalizeState = new GlStateManager.BooleanState(2977);
@@ -599,6 +601,18 @@ public class GlStateManager
         }
     }
 
+    public static void resetColor() {
+        final Color colorState = GlStateManager.colorState;
+        final Color colorState2 = GlStateManager.colorState;
+        final Color colorState3 = GlStateManager.colorState;
+        final Color colorState4 = GlStateManager.colorState;
+        final float n = -1.0f;
+        colorState4.alpha = n;
+        colorState3.blue = n;
+        colorState2.green = n;
+        colorState.field_179195_a = n;
+    }
+
     static class AlphaState
     {
         public GlStateManager.BooleanState field_179208_a;
@@ -984,16 +998,21 @@ public class GlStateManager
         }
     }
 
-    static class TextureState
+    public static class TextureState
     {
         public GlStateManager.BooleanState field_179060_a;
         public int field_179059_b;
-
+        public BooleanState texture2DState;
+        public int textureName;
         private TextureState()
         {
             this.field_179060_a = new GlStateManager.BooleanState(3553);
             this.field_179059_b = 0;
+            this.texture2DState = new BooleanState(3553);
+            this.textureName = 0;
         }
+
+
 
         TextureState(GlStateManager.SwitchTexGen p_i46252_1_)
         {
@@ -1021,4 +1040,6 @@ public class GlStateManager
             this();
         }
     }
+
+
 }

@@ -3,14 +3,11 @@ package me.dev.modules.movement;
 import java.io.IOException;
 import java.util.List;
 
+import com.mentalfrostbyte.jello.event.events.Event;
+import com.mentalfrostbyte.jello.event.events.EventMove;
 import com.mentalfrostbyte.jello.main.Jello;
 import com.mentalfrostbyte.jello.main.Module;
-import info.sigmaclient.event.Event;
-import info.sigmaclient.event.RegisterEvent;
-import info.sigmaclient.event.impl.EventUpdate;
-import info.sigmaclient.event.impl.EventMove;
 
-import info.sigmaclient.util.MathUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.Util;
@@ -54,7 +51,6 @@ public class Bhop extends Module {
         mc.timer.timerSpeed = 1;
     }
 
-    @RegisterEvent(events = {EventMove.class, EventUpdate.class})
 
     public void onUpdate(Event event) {
 //        String currentMode = MODE;

@@ -56,7 +56,12 @@ public class NBTTagCompound extends NBTBase
             {
                 String var5 = readKey(input, sizeTracker);
                 sizeTracker.read((long)(16 * var5.length()));
-                NBTBase var6 = readNBT(var4, var5, input, depth + 1, sizeTracker);
+                NBTBase var6 = null;
+                try {
+                    var6 = readNBT(var4, var5, input, depth + 1, sizeTracker);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
                 this.tagMap.put(var5, var6);
             }
         }

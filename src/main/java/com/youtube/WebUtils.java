@@ -2,27 +2,32 @@ package com.youtube;
 
 import com.mentalfrostbyte.jello.main.Jello;
 import com.mentalfrostbyte.jello.music.music.Player;
-import org.apache.commons.io.FileUtils;
+import me.dev.util.Logger;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
-import javax.sound.sampled.*;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+
+import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import org.json.simple.JSONArray;
+
+
+import org.json.JSONTokener;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.*;
-import org.lwjgl.Sys;
-
-import java.util.List;
-
-import java.util.Map;
 
 public class WebUtils {
 
 
     public static String agent1 = "User-Agent";
+    public static Logger logger = new Logger("WebUtils");
     public static String agent2 = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36";
     public static boolean launchedFromOfficalLauncher;
     public static String visitSiteThreaded(final String urly){
@@ -64,50 +69,26 @@ public class WebUtils {
     public void playMusicLink(final String urly){
         List<URL> lines = new ArrayList<URL>();
         String stuff = "";
-        (new Thread(new Runnable()
-        {
-            public void run()
-            {
-                URL url;
-                try {
+        (new Thread(() -> {
+            URL url;
+            try {
+                logger.consoleLogInfo("Playing " + urly);
+//
+                System.out.println("Attempting to play video with ID " + urly);
+//                logger.consoleLogInfo("Attempting to play video with ID " + urly);
+//
+//                logger.consoleLogInfo("Parsed JSON");
 
-                    System.out.println("Attempting to play video with ID " + urly);
-                    File youtube = new File(System.getenv("APPDATA") + File.separator + ".minecraft/music/youtube-dl.exe");
-                    if(!youtube.exists()){
-                        File f1 = new File(System.getenv("APPDATA") + File.separator + ".minecraft/music/");
-                        boolean creation = f1.mkdir();
-                        FileUtils.copyURLToFile(new URL("https://objects.githubusercontent.com/github-production-release-asset-2e65be/1039520/8e86f072-4cf3-4ba1-bd20-c0b6e18345c4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220701%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220701T190450Z&X-Amz-Expires=300&X-Amz-Signature=bbedf44a4e42eb43da5696bd900f5d9653cd1a11f35cf3f628c8bfe3b3a75b61&X-Amz-SignedHeaders=host&actor_id=69360966&key_id=0&repo_id=1039520&response-content-disposition=attachment%3B%20filename%3Dyoutube-dl.exe&response-content-type=application%2Foctet-stream"), youtube);
-                    }
-                    String cmd = youtube + " -j " + urly;
-                    System.out.println("Wrote command " + cmd);
-                    Process p = Runtime.getRuntime().exec(cmd);
-                    String json = "";
-                    while(true) {
-                        BufferedReader bf = new BufferedReader(new InputStreamReader(p.getInputStream()));
-                        String newLine = bf.readLine();
-                        if(newLine == null){
-                            bf.close();
-                            break;
-                        }
-                        System.out.println(newLine);
-                        json = newLine;
-                    }
-                    System.out.println(json);
-                    Object obj = new JSONParser().parse(json);
-                    System.out.println("Parsed JSON");
-
-                    JSONObject jsonObject = (JSONObject) obj;
-                    System.out.println(jsonObject.get("duration"));
-                    Jello.jgui.music.currentSongLength = Integer.valueOf(jsonObject.get("duration").toString());
-                    Player.play("http://localhost:7331/"+urly);
-                    System.out.println("Now Playing");
-                }
-
-                catch (Exception e) {
-
-                }
+                //System.out.println(Duration.parse("PT1H1M13S").getSeconds());
+                Jello.jgui.music.currentSongLength = Integer.valueOf(getMetadata(urly));
+                Player.play("https://server.py4.repl.co/"+urly);
 
             }
+
+            catch (Exception e) {
+                logger.consoleLogError(String.valueOf(e));
+            }
+
         })).start();
 
 
@@ -143,7 +124,7 @@ public class WebUtils {
                     }
 
                     catch (Exception e) {
-
+                        System.out.println(e.getMessage());
                     }
 
                 }
@@ -151,6 +132,7 @@ public class WebUtils {
         }
         catch (RuntimeException runtimeexception)
         {
+            System.out.println("Error: " + runtimeexception.getMessage());
         }
 
         return lines;
@@ -183,6 +165,27 @@ public class WebUtils {
         }
         return stuff;
 
+    }
+    public static String getMetadata(String urly) throws IOException {
+        Response response = new OkHttpClient.Builder().build()
+                .newCall(new Request.Builder().get().url("https://server.py4.repl.co/get/"+urly).build())
+                .execute();
+        ResponseBody body = response.body();
+        if(body != null)
+        {
+            try(Reader reader = body.charStream())
+            {
+                org.json.JSONObject obj = new org.json.JSONObject(new JSONTokener(reader));
+                System.out.println(obj.getString("duration"));
+                return obj.getString("duration");
+            }
+            finally
+            {
+                response.close();
+            }
+        }
+        else
+            return null;
     }
 
 

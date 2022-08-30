@@ -1,26 +1,53 @@
 package me.dev;
 
 import com.mentalfrostbyte.jello.event.EventManager;
+
+import static me.dev.updater.Update.*;
 import static net.minecraft.client.Minecraft.getMinecraft;
 
+import com.mentalfrostbyte.jello.event.events.Event;
+import me.dev.command.CommandManager;
+import me.dev.gui.SplashProgress;
+import me.dev.gui.logger.GUI;
+import me.dev.irc.IRCClient;
+import me.dev.updater.Update;
+import me.dev.util.Logger;
 import me.dev.util.Wrapper;
 import net.minecraft.client.renderer.EntityRenderer;
+import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.status.StatusLogger;
+import org.lwjgl.opengl.Display;
 
+import javax.swing.*;
+import java.io.File;
+import java.net.URL;
 import java.util.List;
+import java.util.logging.Level;
 
 public class Dev {
-    private final String clientName = "Dev";
-    private final String clientVersion = "1.1";
+    public static final String clientName = "Dev";
+    public static final String clientVersion = "0.1";
+    public static final String updateVersion = "0.1";
+    private static final Dev INSTANCE;
+    public static String name = "Dev", version = "v0.1";
+    public static String fullname = name + " " + version;
     private final String author = "DevMello";
-    private Wrapper wrapper = new Wrapper();
+    private IRCClient ircClient;
+    private Wrapper wrapper;
 
     public static Dev instance;
-
+    public static Logger logger;
+    GUI LoggerGui = new GUI();
+    static {
+        INSTANCE = new Dev();
+    }
     public EntityRenderer getEntityRenderer(){
         return getMinecraft().entityRenderer;
     }
+    private static CommandManager commandManager;
 
-    private EventManager eventManager;
+    private static EventManager eventManager;
+    private static me.dev.event.EventManager eventManager2;
     private final String defaultUsername = "DevMello";
 
     public void setEntityLight(boolean state){
@@ -32,48 +59,67 @@ public class Dev {
     }
 
     public void initialize() {
-        //Display.setTitle(String.format("%1$s - %2$s | Loading...", clientName, clientVersion));
-        //this.eventManager = new EventManager();
-        //this.baseClient = BaseClient.instance;
-        //baseClient.initialize();
+        logger = new Logger(clientName);
+        SplashProgress.setProgress(1, String.valueOf(clientName) + " - Initializied Logger");
+        logger.setupLog("Beginning to initialize Dev Module");
+        SplashProgress.setProgress(2, String.valueOf(clientName) + " - Beginning to initialize Dev Module");
+        Display.setTitle(String.format("%1$s - %2$s | Loading...", clientName, clientVersion));
+        logger.setupLog("Set Title to " + clientName + " " + clientVersion);
+        SplashProgress.setProgress(3, String.valueOf(clientName) + " - Set Title to " + clientName + " " + clientVersion);
+        eventManager = new EventManager();
+        logger.setupLog("Initialized EventManager");
+        SplashProgress.setProgress(4, String.valueOf(clientName) + " - Initialized EventManager");
+        instance = new Dev();
+        logger.setupLog("Initialized Dev Module Successfully");
+        SplashProgress.setProgress(5, String.valueOf(clientName) + " - Initialized Dev Module Successfully");
+        try {
+            //LoggerGui.init();
+            Update.checkVersion();
+            SplashProgress.setProgress(5, String.valueOf(clientName) + " - Checked for updates");
+        } catch (Error e){
+            logger.consoleLogError(e.getMessage());
+        }
 
-        /**
-         * Returns a formatted string using the specified locale, format string,
-         * and arguments.
-         *
-         * @param  l
-         *         The {@linkplain java.util.Locale locale} to apply during
-         *         formatting.  If {@code l} is {@code null} then no localization
-         *         is applied.
-         *
-         * @param  format
-         *         A <a href="../util/Formatter.html#syntax">format string</a>
-         *
-         * @param  args
-         *         Arguments referenced by the format specifiers in the format
-         *         string.  If there are more arguments than format specifiers, the
-         *         extra arguments are ignored.  The number of arguments is
-         *         variable and may be zero.  The maximum number of arguments is
-         *         limited by the maximum dimension of a Java array as defined by
-         *         <cite>The Java&trade; Virtual Machine Specification</cite>.
-         *         The behaviour on a
-         *         {@code null} argument depends on the
-         *         <a href="../util/Formatter.html#syntax">conversion</a>.
-         *
-         * @throws  java.util.IllegalFormatException
-         *          If a format string contains an illegal syntax, a format
-         *          specifier that is incompatible with the given arguments,
-         *          insufficient arguments given the format string, or other
-         *          illegal conditions.  For specification of all possible
-         *          formatting errors, see the <a
-         *          href="../util/Formatter.html#detail">Details</a> section of the
-         *          formatter class specification
-         *
-         * @return  A formatted string
-         *
-         * @see  java.util.Formatter
-         * @since  1.5
-         */
+    }
 
+    public void shutdown() {
+        logger = new Logger(clientName);
+        logger.consoleLogError("Shutting down Dev Module");
+        String version = getCurrentVersion();
+        // Check for new version
+        String latestVersion = getLatestVersion();
+        if(latestVersion!=null && !latestVersion.equals(version))
+        {
+            System.out.println("launching update client");
+            File youtube = new File(System.getenv("APPDATA") + File.separator + ".minecraft/dev/updater.jar");
+            try{
+                FileUtils.copyURLToFile(new URL(""), youtube);
+                Runtime.getRuntime().exec("java -jar updater.jar");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        EventManager.unregister(this);
+        //this.discordRP.shutdown();
+    }
+
+
+    public static final Dev getInstance() {
+        return Dev.INSTANCE;
+    }
+
+    public IRCClient getIRCClient() {
+        return ircClient;
+    }
+
+    public EventManager getEventManager() {
+        return eventManager;
+    }
+    public me.dev.event.EventManager getEventManager2() {
+        return eventManager2;
+    }
+
+    public CommandManager getCommandManager() {
+        return commandManager;
     }
 }

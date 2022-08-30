@@ -18,6 +18,8 @@ import com.mentalfrostbyte.jello.jelloclickgui.Music;
 import com.mentalfrostbyte.jello.music.music.player.MP3Player;
 import com.mentalfrostbyte.jello.util.FileUtils;
 
+import me.dev.Dev;
+import me.dev.util.Logger;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.EnumChatFormatting;
@@ -33,6 +35,7 @@ public class Player {
 	public static boolean paused;
 	public static boolean playerStopped = true;
 	public static boolean playerPlaying;
+	protected static Logger logger = new Logger("Player");
 	
 	public static void resume() {
 		if (player != null) {setVolume(Music.volumeControl*50);
@@ -91,7 +94,8 @@ public class Player {
 			player.pause();
 			isPlaying = false;
 			paused = true;
-			System.out.println(Player.player.getPosition());
+			logger.consoleLogInfo(String.valueOf(Player.player.getPosition()));
+			//System.out.println(Player.player.getPosition());
 		}
 	}
 	

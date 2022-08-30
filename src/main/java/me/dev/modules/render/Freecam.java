@@ -1,5 +1,6 @@
 package me.dev.modules.render;
 
+import com.mentalfrostbyte.jello.main.Jello;
 import com.mentalfrostbyte.jello.main.Module;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.network.Packet;
@@ -28,37 +29,42 @@ import net.minecraft.network.play.client.C16PacketClientStatus;
 import net.minecraft.network.play.client.C17PacketCustomPayload;
 import net.minecraft.network.play.client.C18PacketSpectate;
 import net.minecraft.network.play.client.C19PacketResourcePackStatus;
+import net.minecraft.world.WorldSettings;
+import org.lwjgl.input.Keyboard;
 
 public class Freecam extends Module {
     public EntityOtherPlayerMP ghost;
     private boolean allowFly, isFlying, onGround;
 
-    public Freecam(String name, int keyCode) {
-        super(name, keyCode);
+    public Freecam() {
+        super("FreeCam", Keyboard.KEY_NONE);
+        this.jelloCat = Jello.tabgui.cats.get(4);
     }
 
     public void onEnable() {
         super.onEnable();
-        this.allowFly = mc.thePlayer.capabilities.allowFlying;
-        this.isFlying = mc.thePlayer.capabilities.isFlying;
-        this.onGround = mc.thePlayer.onGround;
-
-        ghost = new EntityOtherPlayerMP(mc.theWorld, mc.getSession().getProfile());
-        ghost.copyLocationAndAnglesFrom(mc.thePlayer);
-        ghost.setRotationYawHead(mc.thePlayer.rotationYawHead);
-        ghost.inventory.copyInventory(mc.thePlayer.inventory);
-        mc.theWorld.addEntityToWorld(-2, ghost);
-        mc.thePlayer.motionY = 0.05447;
+//        this.allowFly = mc.thePlayer.capabilities.allowFlying;
+//        this.isFlying = mc.thePlayer.capabilities.isFlying;
+//        this.onGround = mc.thePlayer.onGround;
+//
+//        ghost = new EntityOtherPlayerMP(mc.theWorld, mc.getSession().getProfile());
+//        ghost.copyLocationAndAnglesFrom(mc.thePlayer);
+//        ghost.setRotationYawHead(mc.thePlayer.rotationYawHead);
+//        ghost.inventory.copyInventory(mc.thePlayer.inventory);
+//        mc.theWorld.addEntityToWorld(-2, ghost);
+//        mc.thePlayer.motionY = 0.05447;
+        mc.thePlayer.setGameType(WorldSettings.GameType.SPECTATOR);
     }
 
     public void onDisable() {
         super.onDisable();
-        mc.thePlayer.capabilities.allowFlying = allowFly;
-        mc.thePlayer.capabilities.isFlying = isFlying;
-        mc.thePlayer.onGround = onGround;
-
-        mc.thePlayer.copyLocationAndAnglesFrom(ghost);
-        mc.theWorld.removeEntityFromWorld(-2);
+//        mc.thePlayer.capabilities.allowFlying = allowFly;
+//        mc.thePlayer.capabilities.isFlying = isFlying;
+//        mc.thePlayer.onGround = onGround;
+//
+//        mc.thePlayer.copyLocationAndAnglesFrom(ghost);
+//        mc.theWorld.removeEntityFromWorld(-2);
+        mc.thePlayer.setGameType(WorldSettings.GameType.SURVIVAL);
     }
 
     public Packet onPacketSend(Packet packet) {
@@ -74,8 +80,9 @@ public class Freecam extends Module {
     }
 
     public void onUpdate() {
-        mc.thePlayer.capabilities.isFlying = true;
-        mc.thePlayer.capabilities.allowFlying = true;
-        mc.thePlayer.onGround = false;
+//        mc.thePlayer.capabilities.isFlying = true;
+//        mc.thePlayer.capabilities.allowFlying = true;
+//        mc.thePlayer.onGround = false;
+
     }
 }

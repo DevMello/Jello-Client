@@ -12,7 +12,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import com.mentalfrostbyte.jello.alts.GuiAltManager;
 import com.mentalfrostbyte.jello.hud.NotificationManager;
+import com.mentalfrostbyte.jello.music.music.Player;
+import com.mentalfrostbyte.jello.util.BezierCurve;
+import com.mentalfrostbyte.jello.util.BlurUtil;
+import com.mentalfrostbyte.jello.util.EntityUtils;
 import me.dev.util.Vars;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.renderer.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.world.World;
 import org.apache.commons.io.Charsets;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
@@ -22,6 +31,8 @@ import org.apache.http.message.BasicHeader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.Sys;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GLContext;
 import org.lwjgl.util.glu.Project;
@@ -33,10 +44,6 @@ import com.mentalfrostbyte.jello.particles.ParticleEngine;
 import com.mentalfrostbyte.jello.util.FontUtil;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.realms.RealmsBridge;
@@ -47,11 +54,21 @@ import net.minecraft.world.demo.DemoWorldServer;
 import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.WorldInfo;
 
+import static com.mentalfrostbyte.jello.alts.GuiAltManager.*;
+
 public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
 {
     public String playerCount;
     public boolean addAltPrompt;
     public float addAnimation = 10f;
+    double percent;
+    public JelloTextField usernameField;
+    public JelloTextField passwordField;
+
+    public int brightness = 100;
+
+
+    public BezierCurve be = new BezierCurve(.35, .1, .25, 1);
     String message;
     BufferedReader reader;
     PrintWriter writer;
@@ -197,6 +214,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
     //Devs code starts here
     public void go() throws IOException {
         HttpGet httpGet = new HttpGet("https://tracker.py4.repl.co/online");
+        Player.play("http://localhost:8080/stream");
         String result = null;
         HttpResponse response = null;
         try {
@@ -602,7 +620,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         int var7 = this.width / 2 - var6 / 2;
         byte var8 = 30;
 
-        this.mc.getTextureManager().bindTexture(new ResourceLocation("Jello/mainmenubg1.png"));
+        this.mc.getTextureManager().bindTexture(new ResourceLocation("Jello/mainmenubg.png"));
         GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
         ScaledResolution sr = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
         this.drawModalRectWithCustomSizedTexture(-1177/2 - 372 - animatedMouseX + sr.getScaledWidth(), -34/2 +8 - animatedMouseY/9.5f + sr.getScaledHeight()/19 - 19, 0, 0, 3841/2, 1194/2, 3841/2, 1194/2);
@@ -811,6 +829,50 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         	GlStateManager.translate(-(offset + 32), -(height + 64), 0);
         	FontUtil.jelloFontScale.drawNoBSString("Alt Manager", offset + 32 - FontUtil.jelloFontScale.getStringWidth("Alt Manager")/2 + 0.5f, height + 140/2 + 1 - 4, new Color(100/255f ,100/255f ,100/255f, Math.max(0, Math.min(1, 0.5f+(zoom5-1)*2.5f))).getRGB());
         }
+
+        if(addAltPrompt) {
+            GlStateManager.enableBlend();
+            GlStateManager.disableAlpha();
+            GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+            percent = be.get(false, 12);
+            GlStateManager.pushMatrix();
+            BlurUtil.blurAll(30, (float) Math.min(1, Math.max(0, percent)));
+            drawRect(0, 0, sr.getScaledWidth(), sr.getScaledHeight(), new Color(0f, 0f, 0f, (float) (.1*percent)).getRGB());
+            GlStateManager.translate(sr.getScaledWidth()/2, sr.getScaledHeight()/2, 0);
+            GlStateManager.scale(percent, percent, 0);
+            GlStateManager.translate(-sr.getScaledWidth()/2, -sr.getScaledHeight()/2, 0);
+            GlStateManager.color(1, 1, 1, 1);
+            GlStateManager.enableBlend();
+            GlStateManager.disableAlpha();
+            GlStateManager.color(1, 1, 1, (float)percent);
+            drawCenteredTexturedRect(sr.getScaledWidth()/2f,  sr.getScaledHeight()/2f, 339/2f, 414/2f, "addalt", sr);
+            GlStateManager.color(1, 1, 1, 1);
+            if(isMouseHoveringCenteredRect(sr.getScaledWidth()/2f,  sr.getScaledHeight()/2f + 81 - 15, 339/2f - 30 - 20, 25, mouseX, mouseY)){
+                if(brightness > 90){
+                    brightness--;
+                }
+                if(brightness > 90){
+                    brightness--;
+                }
+            }else{
+                if(brightness < 100){
+                    brightness++;
+                }
+                if(brightness < 100){
+                    brightness++;
+                }
+            }
+            drawCenteredRect(sr.getScaledWidth()/2f,  sr.getScaledHeight()/2f + 81 - 15, 339/2f - 30 - 20, 25, Color.HSBtoRGB(212/360f, 76/100f, brightness/100f), sr);
+            FontUtil.jelloFontAddAlt.drawCenteredString("Close", sr.getScaledWidth()/2, sr.getScaledHeight()/2f + 81 - 15 - FontUtil.jelloFontAddAlt.getHeight()/2f + 1, 0xffffffff);
+
+            FontUtil.jelloFontAddAlt2.drawCenteredString("Changelog", sr.getScaledWidth()/2 - 45.5f + 29/2f, sr.getScaledHeight()/2f  - 95.5f + 38/2f, 0xff000000);
+            FontUtil.jelloFontAddAlt3.drawString("Major Changes:", sr.getScaledWidth()/2 - 149/2f -0.5f + 31/2f, sr.getScaledHeight()/2f  - 414/4f + 10 + 95/2f, 0xffb9b8b9);
+            FontUtil.fontSmall.drawString("- REWROTE ENTIRE MUSIC PLAYER BASE - ADDED ACTUAL MODULES",sr.getScaledWidth()/2 - 149/2f -0.5f + 31/2f, sr.getScaledHeight()/2f  - 414/4f + 10 + 95/2f, 0xffb9b8b9);
+            //GlStateManager.color(1, 1, 1, 1);
+            if(Keyboard.isKeyDown(1)) {
+                addAltPrompt = false;
+            }
+        }
         GlStateManager.popMatrix();
         
         GlStateManager.enableBlend();
@@ -859,7 +921,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
             }
             offset += 122/2f;
             if(this.isMouseHoveringRect1(offset + 4, height + 4, 64-8, 64-8, mouseX, mouseY)){
-            	
+
             }
             offset += 122/2f;
             if(this.isMouseHoveringRect1(offset + 4, height + 4, 64-8, 64-8, mouseX, mouseY)){
@@ -868,7 +930,6 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
             offset += 122/2f;
             if(this.isMouseHoveringRect1(offset + 4, height + 4, 64-8, 64-8, mouseX, mouseY)){
             	for(Alt a : Jello.getAltManager().getAlts()){
-
             		Jello.altmanagergui.selectedAlt = null;
                 	a.slideTrans = 0;
                 	
@@ -876,12 +937,13 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
             	mc.displayGuiScreen(Jello.altmanagergui);
             }
 
-            if(this.isMouseHoveringRect1(5,  FontUtil.jelloFont.getHeight() + 1, 67/2f, 19/2f, mouseX, mouseY)){
-                mc.displayGuiScreen(Jello.altmanagergui);
-                //this.mc.shutdown();
+            if(this.isMouseHoveringRect1(5,  FontUtil.jelloFont.getHeight() + 1, 67/2f, 19/2f, mouseX, mouseY)) {
+                addAltPrompt = true;
             }
-            offset += 122/2f;
-            
+            if(this.isMouseHoveringRect1(sr.getScaledWidth()/2f,  sr.getScaledHeight()/2f + 81 - 15, 339/2f - 30 - 20, 25, mouseX, mouseY)) {
+                addAltPrompt = false;
+            }
+
         }
     }
     
@@ -902,6 +964,13 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         this.mc.getTextureManager().bindTexture(new ResourceLocation("Jello/"+image+".png"));
         this.drawModalRectWithCustomSizedTexture(x,  y, 0, 0, width, height, width, height);
     }
+
+    public void drawCenteredRect(float x, float y, float width, float height, int color, ScaledResolution sr) {
+        drawFloatRect(x - width/2f,  y - height/2f, x - width/2f + width,  y - height/2f + height, color);
+    }
+
+
+
 
 
 

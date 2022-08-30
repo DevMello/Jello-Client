@@ -7,6 +7,7 @@ import com.mentalfrostbyte.jello.font.JelloFontRenderer;
 import com.mentalfrostbyte.jello.jelloclickgui.JelloGui;
 import com.mentalfrostbyte.jello.main.Jello;
 
+import me.dev.util.Logger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.ResourceLocation;
@@ -16,6 +17,7 @@ public class FontUtil {
 	public static JelloFontRenderer getTextFieldFont(boolean password){
 		return password ? jelloFontGui : mc.currentScreen instanceof JelloGui ? jelloFontGui : jelloFontAddAlt;
 	}
+	public static Logger logger = new Logger("FontUtil");
 
 	private static Font getJelloFont(float size, boolean bold) {
 		Font font = null;
@@ -26,7 +28,8 @@ public class FontUtil {
 			font = font.deriveFont(0, size);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			System.out.println("Error loading font");
+			//System.out.println("Error loading font");
+			logger.consoleLogError("Error loading font");
 			font = new Font("default", 0, +10);
 		}
 		return font;
@@ -41,7 +44,8 @@ public class FontUtil {
 			font = font.deriveFont(0, size);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			System.out.println("Error loading font");
+			//System.out.println("Error loading font");
+			logger.consoleLogError("FontUtil - Error loading font");
 			font = new Font("default", 0, +10);
 		}
 		return font;
@@ -56,7 +60,8 @@ public class FontUtil {
 			font = font.deriveFont(0, size);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			System.out.println("Error loading font");
+			//System.out.println("Error loading font");
+			logger.consoleLogError("FontUtil - Error loading font");
 			font = new Font("default", 0, +10);
 		}
 		return font;
@@ -71,7 +76,7 @@ public class FontUtil {
 	public static JelloFontRenderer jelloFontDuration = JelloFontRenderer.createFontRenderer(getJelloFont((int)(13), false));
 	public static JelloFontRenderer jelloFontMusic = JelloFontRenderer.createFontRenderer(getJelloFont((float) (12f), false));
 	public static JelloFontRenderer jelloFontAddAlt2 = JelloFontRenderer.createFontRenderer(getJelloFont((int)(35), false));
-	public static JelloFontRenderer jelloFontAddAlt3 = JelloFontRenderer.createFontRenderer(getJelloFont((int)(19), false));
+	public static JelloFontRenderer jelloFontAddAlt3 = JelloFontRenderer.createFontRenderer(getJelloFont((int)(16), false));
 	public static JelloFontRenderer jelloFontRegular = JelloFontRenderer.createFontRenderer(getJelloFontRegular((int)(20)));
 	public static JelloFontRenderer jelloFontRegularBig = JelloFontRenderer.createFontRenderer(getJelloFontRegular((int)(24)));
 	public static JelloFontRenderer jelloFontBoldSmall = JelloFontRenderer.createFontRenderer(getJelloFont((int)(19), true));
@@ -82,6 +87,6 @@ public class FontUtil {
 	public static JelloFontRenderer jelloFontMedium = JelloFontRenderer.createFontRenderer(getJelloFont((int)(25), false));
 	public static JelloFontRenderer font = JelloFontRenderer.createFontRenderer(getJelloFontRegular((int)(18)));
 	public static JelloFontRenderer fontBig = JelloFontRenderer.createFontRenderer(getJelloFontRegular((int)(33)));
-	public static JelloFontRenderer fontSmall = JelloFontRenderer.createFontRenderer(getJelloFontRegular((int)(14)));
+	public static JelloFontRenderer fontSmall = JelloFontRenderer.createFontRenderer(getJelloFontRegular((int)(12)));
 	
 }

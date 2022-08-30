@@ -613,7 +613,7 @@ public class GuiAltManager extends GuiScreen
     	return mouseX >= x && mouseY >= y && mouseX <= x + width && mouseY <= y + height;
     }
     
-    public boolean isMouseHoveringCenteredRect(float x, float y, float width, float height, int mouseX, int mouseY){
+    public static boolean isMouseHoveringCenteredRect(float x, float y, float width, float height, int mouseX, int mouseY){
     	return mouseX >= x - width/2 && mouseY >= y  - height/2 && mouseX <= x + width  - width/2 && mouseY <= y + height  - height/2;
     }
     
